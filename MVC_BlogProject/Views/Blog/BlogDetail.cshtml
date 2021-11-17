@@ -1,0 +1,101 @@
+﻿@model EntityLayer.Concrete.Heading
+@{
+    ViewBag.Title = "BlogDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link href="~/blog-page/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/blog-page/web/css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!----webfonts---->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
+    <!----//webfonts---->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!--end slider -->
+    <!--script-->
+    <script type="text/javascript" src="~/blog-page/web/js/move-top.js"></script>
+    <script type="text/javascript" src="~/blog-page/web/js/easing.js"></script>
+    <!--/script-->
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 900);
+            });
+        });
+    </script>
+    <!---->
+
+
+
+</head>
+<body>
+    <!---header---->
+    <!--/header-->
+    <div class="single">
+        <div class="container">
+            <div class="col-md-8 single-main">
+               
+                <div class="single-grid">
+                        <img src=@Model.HeadingImage alt="" />
+                        <h2 style="margin-top:20px;" >@Model.HeadingName</h2>
+                        <p>
+                            @Model.HeadingDescription
+                        </p>
+                    </div>
+
+                
+              
+                @*<ul class="comment-list">
+                   
+                    <li>
+                       @Html.Action("GetBlogContents")
+                    </li>
+                </ul>*@
+
+            </div>
+            
+            <div class="col-md-4 side-content">
+                <div class="recent">
+                    <h3>SON BLOG YAZILARIMIZ</h3>
+                    <ul>
+
+                    </ul>
+                </div>
+                <div class="comments">
+                    <h3>BLOG YAZARLARIMIZ</h3>
+                    <ul>
+                        <li><a href="#">Selen GÜZELLER</a></li>
+                        <li><a href="#">Ceyhun ATAHAN</a></li>
+                        <li><a href="#">Tuğçe GÖK</a></li>
+                    </ul>
+                </div>
+                <div class="categories">
+                    <h3>ÖNERİLERİMİZ</h3>
+                    <ul>
+                        <li><a href="#">Filmler</a></li>
+                        <li><a href="#">Diziler</a></li>
+                        <li><a href="#">Tiyatrolar</a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="col-md-12">
+                @Html.Action("GetBlogContents")
+                <br />
+                <div class="time-label">
+                    <span class="bg-gradient-green"><a href="/MemberPanelContent/AddHeadingContent/@Model.HeadingID" style="color:whitesmoke">YORUM YAP</a></span>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    </body>
+</html>

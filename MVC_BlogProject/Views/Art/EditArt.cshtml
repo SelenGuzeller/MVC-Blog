@@ -1,0 +1,35 @@
+﻿@model EntityLayer.Concrete.Art
+@{
+    ViewBag.Title = "EditArt";
+    Layout = "~/Views/Shared/_CreateLayout.cshtml";
+}
+
+<h2>EditArt</h2>
+
+@using (Html.BeginForm("EditArt", "Art", FormMethod.Post))
+{
+<div class="form-group">
+   
+    @Html.HiddenFor(x => x.ArtID, new { @class = "form-control" })
+  
+    @Html.Label("Adı")
+    @Html.TextBoxFor(x => x.ArtName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Açıklama")
+    @Html.TextBoxFor(x => x.ArtDescription, new { @class = "form-control" })
+    <br />
+    @Html.Label("Resim")
+    @Html.TextBoxFor(x => x.ArtImage, new { @class = "form-control" })
+    <br />
+    @Html.Label("Resim")
+    @Html.TextBoxFor(x => x.ArtStatus, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori")
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+    <br />
+    @Html.Label("Tür")
+    @Html.DropDownListFor(x => x.TypeID, (List<SelectListItem>)ViewBag.vlt, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</div>
+}

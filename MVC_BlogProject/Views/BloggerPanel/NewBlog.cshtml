@@ -1,0 +1,38 @@
+﻿@model EntityLayer.Concrete.Heading
+@{
+    ViewBag.Title = "NewBlog";
+    Layout = "~/Views/Shared/_CreateLayout.cshtml";
+}
+
+<h2>Yeni Blog</h2>
+
+
+<br />
+@using (Html.BeginForm("AddBlog", "BlogDesign", FormMethod.Post@*, new { enctype = "multipart/form-data" }*@))
+{
+<div class="form-group">
+    @Html.Label("Başlık Adı")
+    @Html.TextBoxFor(x => x.HeadingName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.HeadingName)
+    <br />
+    @Html.Label("Kategori")
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CategoryID)
+    <br />
+    @Html.Label("Açıklama")
+    @Html.TextAreaFor(x => x.HeadingDescription, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.HeadingDescription)
+    <br />
+    @*@Html.Label("Yazar ")
+    @Html.HiddenFor(x => x.BloggerID,  new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.BloggerID)*@
+    <br />
+    @Html.Label("Görsel")
+    @Html.TextBoxFor(x => x.HeadingImage, new { @class = "form-control" })
+    @*<input type="file" name="HeadingImage" />
+        <br />
+        <input type="submit" value="Resim Ekle" />
+        <br />*@
+    <button class="btn btn-info">Bloğu Oluştur</button>
+</div>
+}

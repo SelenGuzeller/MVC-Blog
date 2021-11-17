@@ -1,0 +1,39 @@
+﻿@model EntityLayer.Concrete.Art
+@{
+    ViewBag.Title = "AddArt2";
+    Layout = "~/Views/Shared/_CreateLayout.cshtml";
+}
+@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+
+<h2>EKLEME SAYFASI</h2>
+
+@using (Html.BeginForm("AddArt", "Art", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.Label("Sanat Adı")
+        @Html.TextBoxFor(x => x.ArtName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.ArtName)
+        <br />
+        @Html.Label("Açıklama")
+        @Html.TextBoxFor(x => x.ArtDescription, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.ArtDescription)
+        <br />
+        @Html.Label("Kategori")
+        @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CategoryID)
+        <br />
+        @Html.Label("Tür ")
+        @Html.DropDownListFor(x => x.TypeID, (List<SelectListItem>)ViewBag.vlt, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.TypeID)
+        <br />
+        @Html.Label("Resim")
+        @Html.TextBoxFor(x => x.ArtImage, new { @class = "form-control" })
+        @*@Html.ValidationMessageFor(x => x.ArtImage)*@
+        <br />
+        @Html.Label("durum")
+        @Html.TextBoxFor(x=>x.ArtStatus,new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Değişiklikleri Kaydet</button>
+    </div>
+}

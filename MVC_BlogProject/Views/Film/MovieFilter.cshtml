@@ -1,0 +1,55 @@
+﻿@using EntityLayer.Concrete
+@model List<CategoryType>
+
+
+<!DOCTYPE html>
+<head>
+    <title>Free Easy-Trip Website Template | Home :: w3layouts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="~/tema_blog/web/css/style.css" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="~/tema_blog/web/css/slider.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="~/tema_blog/web/js/jquery.min.js"></script>
+    <script src="~/tema_blog/web/js/responsiveslides.min.js"></script>
+    @*<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/f60fede38e.js" crossorigin="anonymous"></script>*@
+    <script>
+        // You can also use "$(window).load(function() {"
+        $(function () {
+            // Slideshow 1
+            $("#slider1").responsiveSlides({
+                auto: true,
+                nav: true,
+                speed: 500,
+                namespace: "callbacks",
+            });
+        });
+    </script>
+
+</head>
+<div class="box1">
+    <div class="padding">
+        <br />
+        <h4><b>Kategori Türleri</b></h4><hr />
+      
+        <form>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">?</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Username">
+            </div>
+        </form>
+        <ul class="list list-pad">
+            @foreach (var item in Model)
+            {
+    <li class="list-bg"><span><i class="far fa-dot-circle"></i></span><a href="/Film/MovieByType/@item.TypeID" style="font-size:20px; color:#210303">@item.TypeName</a></li>}
+        </ul>
+        <a href="/Film/Index/1" class="link1">Tüm Kategoriler</a>
+    </div>
+</div>
+
+
+
+

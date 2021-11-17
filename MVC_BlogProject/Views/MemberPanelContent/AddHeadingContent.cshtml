@@ -1,0 +1,23 @@
+﻿@model EntityLayer.Concrete.Content
+@{
+    ViewBag.Title = "AddHeadingContent";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<
+<h2>Yorum Yapınız</h2>
+
+<br />
+@using (Html.BeginForm("AddHeadingContent", "MemberPanelContent", FormMethod.Post))
+{
+    <div class="form-group">
+        <input type="hidden" name="HeadingID" value="@ViewBag.d" />
+        @Html.Label("Yorumunuzu Yazın")
+        @Html.TextAreaFor(x => x.ContentValue, 10, 30, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.ContentValue)
+        <br />
+
+
+        <button class="btn btn-info">Kaydet</button>
+    </div>
+}

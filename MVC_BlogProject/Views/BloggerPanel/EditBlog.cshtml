@@ -1,0 +1,34 @@
+﻿@model EntityLayer.Concrete.Heading
+@{
+    ViewBag.Title = "EditBlog";
+    Layout = "~/Views/Shared/_CreateLayout.cshtml";
+}
+
+
+<h2>Blog Güncelleme Sayfası</h2>
+@using (Html.BeginForm("EditHeading", "BlogDesign", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.HeadingID, new { @class = "form-control" })
+        <br />
+        @Html.Label("Başlık Adı")
+        @Html.TextBoxFor(x => x.HeadingName, new { @class = "form-control" })
+
+        @Html.HiddenFor(x => x.HeadingDate, new { @class = "form-control" })
+        <br />
+        @Html.Label("Kategori")
+        @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+        <br />
+
+        @Html.HiddenFor(x => x.BloggerID,  new { @class = "form-control" })
+        <br />
+        @Html.Label("Açıklama")
+        @Html.TextAreaFor(x => x.HeadingDescription, new { @class = "form-control" })
+
+        <br />
+        @Html.Label("Görsel URL")
+        @Html.TextBoxFor(x => x.HeadingImage, new { @class = "form-control" })
+
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}

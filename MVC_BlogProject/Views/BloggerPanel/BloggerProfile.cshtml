@@ -1,0 +1,42 @@
+﻿@model EntityLayer.Concrete.Blogger
+@{
+    ViewBag.Title = "BloggerProfile";
+    Layout = "~/Views/Shared/_CreateLayout.cshtml";
+}
+
+<h2>Profil Sayfam</h2>
+
+
+
+@using (Html.BeginForm("BloggerProfile", "BloggerPanel", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Yazar ID")
+        @Html.HiddenFor(x => x.BloggerID, new { @class = "form-control" })
+        @Html.Label("Yazar Adı")
+        @Html.TextBoxFor(x => x.BloggerName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.BloggerName)
+        <br />
+        @Html.Label("Yazar Soyadı")
+        @Html.TextBoxFor(x => x.BloggerSurName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.BloggerSurName)
+        <br />
+        @Html.Label("Yazar Mail")
+        @Html.TextBoxFor(x => x.BloggerMail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.BloggerMail)
+        <br />
+        @Html.Label("Yazar Şifresi")
+        @Html.TextBoxFor(x => x.BloggerPassword, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.BloggerPassword)
+        <br />
+        @Html.Label("Yazar Görsel Linki")
+        @Html.TextBoxFor(x => x.BloggerImage, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.BloggerImage)
+        <br />
+        @Html.Label("Yazar Hakkında")
+        @Html.TextBoxFor(x => x.BloggerAbout, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.BloggerAbout)
+        <br />
+        <button class="btn btn-success">Değişiklikleri Kaydet</button>
+    </div>
+}
